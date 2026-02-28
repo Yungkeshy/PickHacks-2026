@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useState } from "react";
-import { useUser } from "@auth0/nextjs-auth0/client";
 import {
   fetchIntersections,
   fetchNearestIntersection,
@@ -18,8 +17,6 @@ import IncidentForm from "@/components/IncidentForm";
 const MapView = dynamic(() => import("@/components/MapView"), { ssr: false });
 
 export default function Home() {
-  const { user, isLoading: authLoading } = useUser();
-
   const [intersections, setIntersections] = useState<Intersection[]>([]);
   const [streets, setStreets] = useState<Street[]>([]);
   const [startId, setStartId] = useState<string | null>(null);
@@ -72,26 +69,12 @@ export default function Home() {
           </span>
         </div>
         <div className="flex items-center gap-4 text-sm">
-          {authLoading ? (
-            <span className="text-gray-500">…</span>
-          ) : user ? (
-            <>
-              <span className="text-gray-400">{user.name}</span>
-              <a
-                href="/auth/logout"
-                className="rounded-md bg-gray-800 px-3 py-1 text-gray-300 hover:bg-gray-700 transition"
-              >
-                Logout
-              </a>
-            </>
-          ) : (
-            <a
-              href="/auth/login"
-              className="rounded-md bg-emerald-600 px-4 py-1.5 font-medium text-white hover:bg-emerald-500 transition"
-            >
-              Login
-            </a>
-          )}
+          <a
+            href="/dashboard"
+            className="rounded-md bg-gray-800 px-3 py-1 text-gray-300 hover:bg-gray-700 transition"
+          >
+            Dashboard
+          </a>
         </div>
       </header>
 

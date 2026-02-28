@@ -1,11 +1,9 @@
 "use client";
 
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useEffect, useState } from "react";
 import { fetchIncidents, type IncidentDoc } from "@/lib/api";
 
 function DashboardPage() {
-  const { user } = useUser();
   const [incidents, setIncidents] = useState<IncidentDoc[]>([]);
 
   useEffect(() => {
@@ -16,7 +14,7 @@ function DashboardPage() {
     <div className="min-h-screen p-8">
       <h1 className="mb-6 text-2xl font-bold text-emerald-400">Dashboard</h1>
       <p className="mb-4 text-gray-400">
-        Welcome, <span className="text-white">{user?.name ?? "User"}</span>
+        Welcome, <span className="text-white">User</span>
       </p>
 
       <h2 className="mb-3 text-lg font-semibold text-amber-400">
@@ -62,4 +60,4 @@ function DashboardPage() {
   );
 }
 
-export default withPageAuthRequired(DashboardPage);
+export default DashboardPage;
