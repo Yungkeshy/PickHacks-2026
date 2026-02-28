@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 .venv/
+venv/
 __pycache__/
 
 # Build output
@@ -9,6 +10,7 @@ out/
 dist/
 build/
 *.egg-info/
+*.egg
 
 # Environment files
 .env
@@ -18,17 +20,21 @@ build/
 # OS files
 .DS_Store
 Thumbs.db
+*.log
 
 # IDE / Editor
 .vscode/
 .idea/
+.cursor/
 *.swp
 *.swo
+*~
 
 # Python
 *.pyc
 *.pyo
 *.pyd
+.Python
 
 # Debug logs
 npm-debug.log*
@@ -50,6 +56,8 @@ mongo_data/
 
 # Testing
 coverage/
+.coverage
+htmlcov/
 
 # Misc
 .yarn/*
@@ -59,3 +67,5 @@ coverage/
 !.yarn/versions
 .pnp
 .pnp.*
+
+frontend/package-lock.json

@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "SafeWalk — Safety-Weighted Routing",
+  title: "NerveCenter OS — Smart City Command",
   description:
-    "Real-time pedestrian routing that avoids high-danger zones using AI-powered incident analysis.",
+    "A unified Smart City System-of-Systems: SafeWalk ADA routing, FleetVision AI, Transit Pulse, NeuroGrid, CityVoice, and CityShield Ledger.",
 };
 
 export default function RootLayout({
@@ -33,9 +22,7 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] text-[#ededed]`}
-      >
+      <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>
