@@ -1,1 +1,0 @@
-# PickHacks-2026
